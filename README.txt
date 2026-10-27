@@ -1,1 +1,35 @@
-Hello
+Team Members: Sergio, Dylan, Martha
+Project: A Tournament Scoreboard in C++
+
+Operating System: Windows 11 
+Compiled in Microsoft Visual Studio
+
+The program is not complete. Only Setup. 
+
+Libraries include: 
+   <iostream>,  <iomanip>, <string>, <vector>
+
+Build/Run steps: 
+    1. Open the project on GitHub named Tournament Scoreboard.cpp
+    2.  
+
+
+
+
+3 classes set up: Team, Match, and Tournament
+
+Team Class: 
+   Currently sets up the name of team and the number of Win/Loss ratio
+    Each team is set to 0 for all values.
+
+Match Class: 
+    Will set up the match between 2 teams, comparing the final scores and finalizing the outcome of the match.
+    With said outcome, the team will accumulate their points 
+
+Tournament class:
+  Is still up for discussion, but the overall outcome is to decide which team comes 1st in the tournament. Removing losing teamsn 
+     and determining the next match for the next round. 
+
+Needed dependencies: 
+    main
+    finishing tournament class
