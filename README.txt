@@ -11,7 +11,8 @@ Libraries include:
 
 Build/Run steps: 
     1. Open the project on GitHub named Tournament Scoreboard.cpp
-    2.  
+    2.  Set classes and needed headers(Libraries)
+    3. Build of ur classes and set up what 
 
 
 
