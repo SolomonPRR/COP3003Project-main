@@ -42,7 +42,7 @@ public:
             wlr = 0;
         }
         else { // All just to make sure it rounds correctly. AI assistance was used here.
-            wlr = static_cast<int>(std::round(static_cast<double>(wins) * 200 / (wins + losses)));
+            wlr = static_cast<int>(std::round(static_cast<double>(wins) * 100 / (wins + losses)));
         }
         return wlr;
     }
