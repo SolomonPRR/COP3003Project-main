@@ -6,7 +6,7 @@
 class Team {
 private:
     std::string name = " ";
-    int wins = 0, losses = 0, draws = 0, totalPoints = 0, winStreak = 0, wlr = 0; // Win/Loss Ratio between 50 and 0.
+    int wins = 0, losses = 0, draws = 0, totalPoints = 0, winStreak = 0, wlr = 0; // Win/Loss Ratio between 100 and 0.
 
 public:
     Team(std::string newName) {
@@ -165,4 +165,6 @@ public:
 int main()
 {
     // Ooga Booga
-}
+    // Booga 2\
+    // GUI to be implemented
+ }
