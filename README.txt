@@ -33,4 +33,4 @@ Tournament class:
 
 Needed dependencies: 
     Seting up main
-    finishing tournament class
+    finishing tournament class, deciding the over outcome and decisions of the teams. 
