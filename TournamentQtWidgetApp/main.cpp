@@ -7,10 +7,10 @@
 #include <cmath>
 
 //test change
-
+//test change 2.0??
 class Team {
 private:
-    std::string name = " ";
+    std::string name = "e ";
     int wins = 0, losses = 0, draws = 0, totalPoints = 0, winStreak = 0, wlr = 0; // Win/Loss Ratio between 100 and 0.
 
 public:
