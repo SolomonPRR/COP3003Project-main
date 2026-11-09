@@ -139,6 +139,29 @@ public:
             // Ditto.
         }
     }
+    void addTeam() {
+        
+        std::string name;
+        
+		std::cout << "\nEnter team name: ";
+		std::getline(std::cin, name);
+
+        teams.push_back(Team(name));
+
+		std::cout << name << "\nWelcome to the tournament!\n" << "\nYour team was added\n";
+    }
+
+    void showTeams() {
+		if (teams.empty()) {
+			std::cout << "No teams have been added yet.\n";
+			return;
+		}
+		std::cout << "Teams in the tournament:\n";
+
+		for (int i = 0; i < teams.size(); ++i) {
+			std::cout << i + 1 << ". " << teams[i].getName() << "\n";
+		}
+    }
 
     void nextRound() {
         round++; // Placeholder for now.
@@ -155,6 +178,32 @@ public:
             // TBD
         }
     }
+    void removeLoser(Match match) {
+        std::string Loser;
+
+        if (match.getResult(1) == "WIN") {
+            // Remove match.getTeam(2) from vector teams
+            Loser = match.getTeam(2).getName();
+        }
+        else if (match.getResult(1) == "LOSE") {
+            // Remove match.getTeam(1) from vector teams
+            Loser = match.getTeam(1).getName();
+        }
+        else 
+        {
+            std::cout << "The match ended in a draw.\n";
+            return;
+            // TBD
+        }
+
+		for (std::vector<Team>::iterator it = teams.begin(); it != teams.end(); ++it) {
+			if (it->getName() == Loser) {
+				teams.erase(it);
+				std::cout << "Team " << Loser << " has been eliminated from the tournament.\n";
+				return;
+			}
+		}
+    }
 
     void shuffleBracket() {
         // Undecided addition, TBD
@@ -168,8 +217,37 @@ public:
 
 int main(int argc, char *argv[])
 {
+    
     QApplication app(argc, argv);
     TournamentQtWidgetApp window;
     window.show();
     return app.exec();
+
+    Tournament tournament(0, 0);
+
+while (true) {
+    std::cout << "1. Add Team\n";
+    std::cout << "2. Show Teams\n";
+    std::cout<<"3. Next Round\n4. Exit\n";
+	int choice;
+	std::cin >> choice;
+	std::cin.ignore(); // Clear the newline character from the input buffer
+	if (choice == 1) {
+		tournament.addTeam();
+	}
+    else if (choice == 2)
+    {
+        tournament.showTeams();
+
+    }
+	else if (choice == 3) {
+		tournament.nextRound();
+	}
+	else if (choice == 4) {
+		break;
+	}
+	else {
+		std::cout << "Invalid choice. Choose one of the numbers given\n";
+	}
+}
 }
