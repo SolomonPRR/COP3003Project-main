@@ -204,7 +204,7 @@ public:
 			}
 		}
     }
-
+/*
     void shuffleBracket() {
         // Undecided addition, TBD
     }
@@ -213,7 +213,8 @@ public:
         // Undecided addition, TBD
         //
     }
-};
+};*/
+//
 
 int main(int argc, char *argv[])
 {
