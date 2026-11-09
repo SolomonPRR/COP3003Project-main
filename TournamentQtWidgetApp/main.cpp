@@ -226,13 +226,13 @@ int main(int argc, char *argv[])
 
     Tournament tournament(0, 0);
 
-while (true) {
+while () {
     std::cout << "1. Add Team\n";
     std::cout << "2. Show Teams\n";
     std::cout<<"3. Next Round\n4. Exit\n";
 	int choice;
 	std::cin >> choice;
-	std::cin.ignore(); // Clear the newline character from the input buffer
+	std::cin.ignore(); 
 	if (choice == 1) {
 		tournament.addTeam();
 	}
