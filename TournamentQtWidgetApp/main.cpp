@@ -140,27 +140,27 @@ public:
         }
     }
     void addTeam() {
-        
+
         std::string name;
-        
-		std::cout << "\nEnter team name: ";
-		std::getline(std::cin, name);
+
+        std::cout << "\nEnter team name: ";
+        std::getline(std::cin, name);
 
         teams.push_back(Team(name));
 
-		std::cout << name << "\nWelcome to the tournament!\n" << "\nYour team was added\n";
+        std::cout << name << "\nWelcome to the tournament!\n" << "\nYour team was added\n";
     }
 
     void showTeams() {
-		if (teams.empty()) {
-			std::cout << "No teams have been added yet.\n";
-			return;
-		}
-		std::cout << "Teams in the tournament:\n";
+        if (teams.empty()) {
+            std::cout << "No teams have been added yet.\n";
+            return;
+        }
+        std::cout << "Teams in the tournament:\n";
 
-		for (int i = 0; i < teams.size(); ++i) {
-			std::cout << i + 1 << ". " << teams[i].getName() << "\n";
-		}
+        for (int i = 0; i < teams.size(); ++i) {
+            std::cout << i + 1 << ". " << teams[i].getName() << "\n";
+        }
     }
 
     void nextRound() {
@@ -189,66 +189,67 @@ public:
             // Remove match.getTeam(1) from vector teams
             Loser = match.getTeam(1).getName();
         }
-        else 
+        else
         {
             std::cout << "The match ended in a draw.\n";
             return;
             // TBD
         }
 
-		for (std::vector<Team>::iterator it = teams.begin(); it != teams.end(); ++it) {
-			if (it->getName() == Loser) {
-				teams.erase(it);
-				std::cout << "Team " << Loser << " has been eliminated from the tournament.\n";
-				return;
-			}
-		}
+        for (std::vector<Team>::iterator it = teams.begin(); it != teams.end(); ++it) {
+            if (it->getName() == Loser) {
+                teams.erase(it);
+                std::cout << "Team " << Loser << " has been eliminated from the tournament.\n";
+                return;
+            }
+        }
     }
-/*
-    void shuffleBracket() {
-        // Undecided addition, TBD
-    }
+    /*
+        void shuffleBracket() {
+            // Undecided addition, TBD
+        }
 
-    void enableLD() {
-        // Undecided addition, TBD
-        //
-    }
-};*/
-//
+        void enableLD() {
+            // Undecided addition, TBD
+            //
+        }
+    };*/
+    //
 
-int main(int argc, char *argv[])
-{
-    
-    QApplication app(argc, argv);
-    TournamentQtWidgetApp window;
-    window.show();
-    return app.exec();
-
-    Tournament tournament(0, 0);
-
-while () {
-    std::cout << "1. Add Team\n";
-    std::cout << "2. Show Teams\n";
-    std::cout<<"3. Next Round\n4. Exit\n";
-	int choice;
-	std::cin >> choice;
-	std::cin.ignore(); 
-	if (choice == 1) {
-		tournament.addTeam();
-	}
-    else if (choice == 2)
+    int main(int argc, char* argv[])
     {
-        tournament.showTeams();
 
+        QApplication app(argc, argv);
+        TournamentQtWidgetApp window;
+        window.show();
+        return app.exec();
+
+        Tournament tournament(0, 0);
+
+        while () {
+            std::cout << "1. Add Team\n";
+            std::cout << "2. Show Teams\n";
+            std::cout << "3. Next Round\n4. Exit\n";
+            int choice;
+            std::cin >> choice;
+            std::cin.ignore();
+            if (choice == 1) {
+                tournament.addTeam();
+            }
+            else if (choice == 2)
+            {
+                tournament.showTeams();
+
+            }
+            else if (choice == 3) {
+                tournament.nextRound();
+            }
+            else if (choice == 4) {
+                break;
+            }
+            else {
+                std::cout << "Invalid choice. Choose one of the numbers given\n";
+            }
+        }
     }
-	else if (choice == 3) {
-		tournament.nextRound();
-	}
-	else if (choice == 4) {
-		break;
-	}
-	else {
-		std::cout << "Invalid choice. Choose one of the numbers given\n";
-	}
-}
-}
+};
