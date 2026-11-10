@@ -41,17 +41,17 @@ public:
         return winStreak;
     }
 
-	bool getEliminated() {
-		return eliminated;
-	}
+    bool getEliminated() {
+        return eliminated;
+    }
 
-	void eliminate() {
-		eliminated = true;
-	}
+    void eliminate() {
+        eliminated = true;
+    }
 
     void resetElimination() {
         eliminated = false;
-	}
+    }
 
     double getWLR() {
         if (wins + losses == 0) {
@@ -78,7 +78,7 @@ public:
             winStreak = 0;
         }
     }
-}
+};
 
 class Match {
 private:
@@ -106,7 +106,7 @@ public:
         }
     };
 
-	// Returns the result of the match for the specified team (1 or 2) as a string: "WIN", "LOSS", or "DRAW".
+    // Returns the result of the match for the specified team (1 or 2) as a string: "WIN", "LOSS", or "DRAW".
     std::string getResult(int team) {
         int ourScore, theirScore;
         if (team == 1) {
@@ -137,7 +137,7 @@ public:
             t2Score += points;
         }
     }
-}
+};
 
 class Tournament {
 private:
@@ -260,7 +260,7 @@ public:
             }
         }
     }
-}
+};
 
 int main(int argc, char* argv[])
 {
