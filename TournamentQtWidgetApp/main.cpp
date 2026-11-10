@@ -10,6 +10,7 @@ class Team {
 private:
     std::string name = " ";
     int wins = 0, losses = 0, draws = 0, totalPoints = 0, winStreak = 0, wlr = 0; // Win/Loss Ratio between 100 and 0.
+    bool eliminated = false;
 
 public:
     Team(std::string newName) {
@@ -40,6 +41,18 @@ public:
         return winStreak;
     }
 
+	bool getEliminated() {
+		return eliminated;
+	}
+
+	void eliminate() {
+		eliminated = true;
+	}
+
+    void resetElimination() {
+        eliminated = false;
+	}
+
     double getWLR() {
         if (wins + losses == 0) {
             wlr = 0;
@@ -65,7 +78,7 @@ public:
             winStreak = 0;
         }
     }
-};
+}
 
 class Match {
 private:
@@ -93,6 +106,7 @@ public:
         }
     };
 
+	// Returns the result of the match for the specified team (1 or 2) as a string: "WIN", "LOSS", or "DRAW".
     std::string getResult(int team) {
         int ourScore, theirScore;
         if (team == 1) {
@@ -123,22 +137,41 @@ public:
             t2Score += points;
         }
     }
-};
+}
 
 class Tournament {
 private:
-    std::vector<Team> teams, matches;
-    int round = 1;
+    std::vector<Team> teams;
+    int round = 1, match = 1, totalTeams, totalMatches, totalRounds;
 
 public:
-    Tournament(int totalTeams, int totalMatches) {
-        for (int i = 0; i < totalTeams; ++i) {
-            // Needs to be discussed, Placeholder for now.
+    Tournament(int totalTeams, int totalMatches) : totalTeams(totalTeams), totalMatches(totalMatches) {
+		// Put all teams into the teams vector, and set all to not eliminated. (Needs GUI Implementation for this)
+		// for (int i = 0; i < totalTeams; ++i) {
+		//    teams.push_back(Team( [Grab Info From GUI] ));
+		//    teams[i].resetElimination();
+        // }
+
+        if (teams.size() != 4 && teams.size() != 8 && teams.size() != 16) {
+			// Cancel the Tournament creation somehow or just terminate the program with an error message. Should never get to this point.
+            exit(1);
+		}
+        else if (totalTeams == 4) {
+            totalMatches = 3;
+            totalRounds = 2;
         }
-        for (int i = 0; i < totalMatches; ++i) {
-            // Ditto.
+        else if (totalTeams == 8) {
+            totalMatches = 7;
+			totalRounds = 3;
+        }
+        else if (totalTeams == 16) {
+            totalMatches = 15;
+			totalRounds = 4;
         }
     }
+
+    // I don't believe this is how we will be adding teams in the end product, but this can be used for testing in the meantime.
+    // This might actually get moved outside of this class, depends on how I want to go about it.
     void addTeam() {
 
         std::string name;
@@ -151,6 +184,7 @@ public:
         std::cout << name << "\nWelcome to the tournament!\n" << "\nYour team was added\n";
     }
 
+    // Not entirely sure what we'll be using this for, but I will leave it here.
     void showTeams() {
         if (teams.empty()) {
             std::cout << "No teams have been added yet.\n";
@@ -163,93 +197,104 @@ public:
         }
     }
 
-    void nextRound() {
-        round++; // Placeholder for now.
+    void nextMatch() {
+		if (match > totalMatches) {
+            // No more matches to be played.
+			return;
+		}
+		else {
+			match++; // Placeholder.
+		}
     }
 
-    void removeLoser(Match match) {
-        if (match.getResult(1) == "WIN") {
-            // Remove match.getTeam(2) from vector teams
+    void nextRound() {
+		// Each Team vs Team is considered a "Match", once all teams have played a match, the current "Round" ends, progressing until the end of the Tournament.
+        // Only 3 Tournament Sizes will be supported, 16, 8, and 4 Teams. Doing this any differently will require more work, and is currently outside of our scope.
+		// 16 Teams: 4 Rounds, 15 Matches
+			// Round 1: Team 1 vs Team 2, Team 3 vs Team 4, Team 5 vs Team 6, Team 7 vs Team 8, Team 9 vs Team 10, Team 11 vs Team 12, Team 13 vs Team 14, Team 15 vs Team 16
+			// Round 2: Team 1/2 vs Team 3/4, Team 5/6 vs Team 7/8, Team 9/10 vs Team 11/12, Team 13/14 vs Team 15/16
+			// Round 3: Team 1/2/3/4 vs Team 5/6/7/8, Team 9/10/11/12 vs Team 13/14/15/16
+			// Round 4: Team 1/2/3/4/5/6/7/8 vs Team 9/10/11/12/13/14/15/16
+		// 8 Teams: 3 Rounds, 7 Matches
+            // Round 1: Team 1 vs Team 2, Team 3 vs Team 4, Team 5 vs Team 6, Team 7 vs Team 8
+            // Round 2: Team 1/2 vs Team 3/4, Team 5/6 vs Team 7/8, Team 9/10 vs Team 11/12, Team 13/14 vs Team 15/16
+			// Round 3: Team 1/2/3/4 vs Team 5/6/7/8
+		// 4 Teams: 2 Rounds, 3 Matches
+            // Round 1: Team 1 vs Team 2, Team 3 vs Team 4
+            // Round 2: Team 1/2 vs Team 3/4
+        if (round < totalRounds) {
+            round++; // Unfortunately, still a Placeholder.
         }
-        else if (match.getResult(1) == "LOSE") {
-            // Remove match.getTeam(1) from vector teams
-        }
-        else if (match.getResult(1) == "DRAW") {
-            // TBD
+        else {
+            // Nothing for now.
         }
     }
+
+    // Will be called at the end of each Match.
     void removeLoser(Match match) {
         std::string Loser;
 
         if (match.getResult(1) == "WIN") {
-            // Remove match.getTeam(2) from vector teams
             Loser = match.getTeam(2).getName();
         }
         else if (match.getResult(1) == "LOSE") {
-            // Remove match.getTeam(1) from vector teams
             Loser = match.getTeam(1).getName();
         }
         else
         {
-            std::cout << "The match ended in a draw.\n";
+            // Both Teams lose
+			for (std::vector<Team>::iterator it = teams.begin(); it != teams.end(); ++it) {
+				if (it->getName() == match.getTeam(1).getName() || it->getName() == match.getTeam(2).getName()) {
+					std::cout << "Team " << it->getName() << " has been eliminated from the tournament.\n";
+					teams[it].eliminate();
+				}
+			}
             return;
-            // TBD
         }
 
+        // Remove the team that lost from the team vector
         for (std::vector<Team>::iterator it = teams.begin(); it != teams.end(); ++it) {
             if (it->getName() == Loser) {
-                teams.erase(it);
                 std::cout << "Team " << Loser << " has been eliminated from the tournament.\n";
-                return;
+				teams[it].eliminate();
             }
         }
     }
-    /*
-        void shuffleBracket() {
-            // Undecided addition, TBD
+}
+
+int main(int argc, char* argv[])
+{
+
+    QApplication app(argc, argv);
+    TournamentQtWidgetApp window;
+    window.show();
+    return app.exec();
+
+    Tournament tournament(0, 0);
+
+    while (true) {
+        std::cout << "1. Add Team\n";
+        std::cout << "2. Show Teams\n";
+        std::cout << "3. Next Round\n4. Exit\n";
+        int choice;
+        std::cin >> choice;
+        std::cin.ignore();
+        if (choice == 1) {
+            tournament.addTeam();
         }
+        else if (choice == 2)
+        {
+            tournament.showTeams();
 
-        void enableLD() {
-            // Undecided addition, TBD
-            //
         }
-    };*/
-    //
-
-    int main(int argc, char* argv[])
-    {
-
-        QApplication app(argc, argv);
-        TournamentQtWidgetApp window;
-        window.show();
-        return app.exec();
-
-        Tournament tournament(0, 0);
-
-        while () {
-            std::cout << "1. Add Team\n";
-            std::cout << "2. Show Teams\n";
-            std::cout << "3. Next Round\n4. Exit\n";
-            int choice;
-            std::cin >> choice;
-            std::cin.ignore();
-            if (choice == 1) {
-                tournament.addTeam();
-            }
-            else if (choice == 2)
-            {
-                tournament.showTeams();
-
-            }
-            else if (choice == 3) {
-                tournament.nextRound();
-            }
-            else if (choice == 4) {
-                break;
-            }
-            else {
-                std::cout << "Invalid choice. Choose one of the numbers given\n";
-            }
+        else if (choice == 3) {
+            tournament.nextRound();
+        }
+        else if (choice == 4) {
+            break;
+        }
+        else {
+            std::cout << "Invalid choice. Choose one of the numbers given\n";
         }
     }
-};
+}
