@@ -246,7 +246,7 @@ public:
 			for (std::vector<Team>::iterator it = teams.begin(); it != teams.end(); ++it) {
 				if (it->getName() == match.getTeam(1).getName() || it->getName() == match.getTeam(2).getName()) {
 					std::cout << "Team " << it->getName() << " has been eliminated from the tournament.\n";
-					teams[it].eliminate();
+					it->eliminate();
 				}
 			}
             return;
@@ -256,7 +256,7 @@ public:
         for (std::vector<Team>::iterator it = teams.begin(); it != teams.end(); ++it) {
             if (it->getName() == Loser) {
                 std::cout << "Team " << Loser << " has been eliminated from the tournament.\n";
-				teams[it].eliminate();
+				it->eliminate();
             }
         }
     }
