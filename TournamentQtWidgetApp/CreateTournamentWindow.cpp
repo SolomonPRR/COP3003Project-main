@@ -1,4 +1,6 @@
 #include "CreateTournamentWindow.h"
+#include <QmessageBox>
+#include <QPushButton>
 
 CreateTournamentWindow::CreateTournamentWindow(QWidget *parent)
 	: QMainWindow(parent)
