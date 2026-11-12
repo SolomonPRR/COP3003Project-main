@@ -25,12 +25,18 @@ Team Class:
 
 Match Class: 
     Will set up the match between 2 teams, comparing the final scores and finalizing the outcome of the match.
-    With said outcome, the team will accumulate their points 
+    With said outcome, the team will accumulate points 
 
 Tournament class:
   Is still up for discussion, but the overall outcome is to decide which team comes 1st in the tournament. Removing losing teams 
      and determining the next match for the next round. 
 
+GUI: 
+The GUI: Incomplete
+As of 11/11/26  the GUI has been implemented in the code. So far, we are able to input the team names and add them in the teams list window. 
+In progress is the creating/starting matches task, in which we will be able to show the progression of each team. 
+To be determined is the deleting teams/compare team points; this will implement the comparison between each team's matches. Any loser or teams in a draw would lead to the team no longer participating in the tournament. 
+
+
 Needed dependencies: 
-    Seting up main
-    finishing tournament class, deciding the over outcome and decisions of the teams. 
+    Connecting the creating matches/deleting teams
