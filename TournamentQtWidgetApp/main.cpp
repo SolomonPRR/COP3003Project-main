@@ -145,6 +145,7 @@ private:
     int round = 1, match = 1, totalTeams, totalMatches, totalRounds;
 
 public:
+	Tournament()=default;
     Tournament(int totalTeams, int totalMatches) : totalTeams(totalTeams), totalMatches(totalMatches) {
 		// Put all teams into the teams vector, and set all to not eliminated. (Needs GUI Implementation for this)
 		// for (int i = 0; i < totalTeams; ++i) {
@@ -169,20 +170,21 @@ public:
 			totalRounds = 4;
         }
     }
+	bool addTeam(const std::string& name)
+	{
+    	if (name.empty())
+     	   return false;
 
-    // I don't believe this is how we will be adding teams in the end product, but this can be used for testing in the meantime.
-    // This might actually get moved outside of this class, depends on how I want to go about it.
-    void addTeam() {
+   	 for (auto& team : teams)
+  	  {
+	        if (team.getName() == name)
+            return false;
+   	 }
 
-        std::string name;
-
-        std::cout << "\nEnter team name: ";
-        std::getline(std::cin, name);
-
-        teams.push_back(Team(name));
-
-        std::cout << name << "\nWelcome to the tournament!\n" << "\nYour team was added\n";
-    }
+    	teams.push_back(Team(name));
+    	return true;
+	}
+    
 
     // Not entirely sure what we'll be using this for, but I will leave it here.
     void showTeams() {
@@ -269,32 +271,5 @@ int main(int argc, char* argv[])
     TournamentQtWidgetApp window;
     window.show();
     return app.exec();
-
-    Tournament tournament(0, 0);
-
-    while (true) {
-        std::cout << "1. Add Team\n";
-        std::cout << "2. Show Teams\n";
-        std::cout << "3. Next Round\n4. Exit\n";
-        int choice;
-        std::cin >> choice;
-        std::cin.ignore();
-        if (choice == 1) {
-            tournament.addTeam();
-        }
-        else if (choice == 2)
-        {
-            tournament.showTeams();
-
-        }
-        else if (choice == 3) {
-            tournament.nextRound();
-        }
-        else if (choice == 4) {
-            break;
-        }
-        else {
-            std::cout << "Invalid choice. Choose one of the numbers given\n";
-        }
-    }
+    
 }
