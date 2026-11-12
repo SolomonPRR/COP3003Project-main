@@ -13,5 +13,7 @@ public:
 
 private:
 	Ui::CreateTournamentWindowClass ui;
+	Tournament tournament ; 
+
 };
 
