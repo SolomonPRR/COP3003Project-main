@@ -16,5 +16,7 @@ private:
 private slots:
     void on_createTournamentButton_clicked();
 	void on_exitButton_clicked();
+private:
+	Tournament* tournament;
 };
 
