@@ -1,4 +1,5 @@
 #include "TournamentQtWidgetApp.h"
+
 #include <QtWidgets/QApplication>
 #include <iostream>
 #include <iomanip>
