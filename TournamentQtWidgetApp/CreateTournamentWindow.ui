@@ -17,7 +17,7 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>360</x>
+      <x>560</x>
       <y>20</y>
       <width>231</width>
       <height>41</height>
@@ -32,21 +32,21 @@
      <string>Tournament Teams</string>
     </property>
    </widget>
-   <widget class="QListWidget" name="listWidget">
+   <widget class="QListWidget" name="teamListSetup">
     <property name="geometry">
      <rect>
-      <x>40</x>
+      <x>450</x>
       <y>70</y>
-      <width>871</width>
+      <width>441</width>
       <height>211</height>
      </rect>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="restartSetupButton">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>30</y>
+      <x>650</x>
+      <y>300</y>
       <width>111</width>
       <height>31</height>
      </rect>
@@ -55,11 +55,11 @@
      <string>Restart</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="startMatchButton">
     <property name="geometry">
      <rect>
-      <x>790</x>
-      <y>30</y>
+      <x>770</x>
+      <y>300</y>
       <width>121</width>
       <height>31</height>
      </rect>
@@ -71,19 +71,19 @@
    <widget class="QLineEdit" name="lineEdit">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>290</y>
-      <width>281</width>
+      <x>60</x>
+      <y>140</y>
+      <width>231</width>
       <height>31</height>
      </rect>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_3">
+   <widget class="QPushButton" name="addTeamButton">
     <property name="geometry">
      <rect>
-      <x>330</x>
-      <y>290</y>
-      <width>121</width>
+      <x>300</x>
+      <y>140</y>
+      <width>111</width>
       <height>31</height>
      </rect>
     </property>
@@ -91,12 +91,12 @@
      <string>Add Team</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_4">
+   <widget class="QPushButton" name="deleteTeamButton">
     <property name="geometry">
      <rect>
-      <x>330</x>
-      <y>330</y>
-      <width>121</width>
+      <x>300</x>
+      <y>200</y>
+      <width>111</width>
       <height>31</height>
      </rect>
     </property>
@@ -107,11 +107,68 @@
    <widget class="QLineEdit" name="lineEdit_2">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>330</y>
-      <width>281</width>
+      <x>60</x>
+      <y>200</y>
+      <width>231</width>
       <height>31</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="size4TournamentButton">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>70</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>4 Teams</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="size8TournamentButton">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>70</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>8 Teams</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="size16TournamentButton">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>70</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>16 Teams</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>20</y>
+      <width>261</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>20</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Tournament Settings </string>
     </property>
    </widget>
   </widget>

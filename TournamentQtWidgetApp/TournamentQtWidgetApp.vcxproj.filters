@@ -43,14 +43,50 @@
     <ClCompile Include="CreateTournamentWindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="_4TeamBracketMatch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="_8TeamBracketMatch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="_16TeamBracketMatch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MatchStandings.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="CreateTournamentWindow.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="_4TeamBracketMatch.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="_8TeamBracketMatch.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="_16TeamBracketMatch.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="MatchStandings.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="CreateTournamentWindow.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="_4TeamBracketMatch.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="_8TeamBracketMatch.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="_16TeamBracketMatch.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="MatchStandings.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>

@@ -13,5 +13,13 @@ public:
 
 private:
 	Ui::CreateTournamentWindowClass ui;
+private slots:
+	void on_addTeamButton_clicked();
+	void on_deleteTeamButton_clicked();
+	void on_restartSetupButton_clicked();
+	void on_startMatchButton_clicked();
+	void on_size4TournamentButton_clicked();
+	void on_size8TournamentButton_clicked();
+	void on_size16TournamentButton_clicked();
 };
 
