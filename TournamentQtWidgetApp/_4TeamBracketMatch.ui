@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>895</width>
-    <height>391</height>
+    <width>1314</width>
+    <height>565</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -118,7 +118,7 @@
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QSpinBox" name="spinBox">
+   <widget class="QSpinBox" name="match1Score1A">
     <property name="geometry">
      <rect>
       <x>50</x>
@@ -131,7 +131,7 @@
      <number>100</number>
     </property>
    </widget>
-   <widget class="QSpinBox" name="spinBox_2">
+   <widget class="QSpinBox" name="match1Score2A">
     <property name="geometry">
      <rect>
       <x>50</x>
@@ -144,7 +144,7 @@
      <number>100</number>
     </property>
    </widget>
-   <widget class="QSpinBox" name="spinBox_3">
+   <widget class="QSpinBox" name="match1Score3A">
     <property name="geometry">
      <rect>
       <x>50</x>
@@ -157,7 +157,7 @@
      <number>100</number>
     </property>
    </widget>
-   <widget class="QSpinBox" name="spinBox_4">
+   <widget class="QSpinBox" name="match1Score4A">
     <property name="geometry">
      <rect>
       <x>50</x>
@@ -170,7 +170,7 @@
      <number>100</number>
     </property>
    </widget>
-   <widget class="QSpinBox" name="spinBox_5">
+   <widget class="QSpinBox" name="match2Score1A">
     <property name="geometry">
      <rect>
       <x>330</x>
@@ -183,7 +183,7 @@
      <number>100</number>
     </property>
    </widget>
-   <widget class="QSpinBox" name="spinBox_6">
+   <widget class="QSpinBox" name="match2Score2A">
     <property name="geometry">
      <rect>
       <x>330</x>
@@ -293,7 +293,7 @@
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>340</x>
+      <x>310</x>
       <y>10</y>
       <width>261</width>
       <height>41</height>
@@ -503,7 +503,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>895</width>
+     <width>1314</width>
      <height>21</height>
     </rect>
    </property>

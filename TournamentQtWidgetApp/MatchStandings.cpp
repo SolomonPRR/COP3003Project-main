@@ -28,3 +28,10 @@ void  MatchStandings::on_return2MenuButton_clicked()
 	window->setWindowModality(Qt::ApplicationModal);
 	window->show();
 }
+
+void MatchStandings::setResults(const QString& results)
+{
+	ui.resultsWidget->clear();
+	ui.resultsWidget->addItems(results.split('\n'));
+
+}

@@ -10,6 +10,7 @@ class MatchStandings : public QMainWindow
 public:
 	MatchStandings(QWidget *parent = nullptr);
 	~MatchStandings();
+	void setResults(const QString& results);
 
 private:
 	Ui::MatchStandingsClass ui;

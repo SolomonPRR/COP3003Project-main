@@ -2,6 +2,7 @@
 
 #include <QMainWindow>
 #include "ui_CreateTournamentWindow.h"
+#include "TournamentBridge.h"
 
 class CreateTournamentWindow : public QMainWindow
 {
@@ -13,6 +14,8 @@ public:
 
 private:
 	Ui::CreateTournamentWindowClass ui;
+	Tournament tournament{4, 3}; // Instance of the Tournament class to manage the tournament logic.
+
 private slots:
 	void on_addTeamButton_clicked();
 	void on_deleteTeamButton_clicked();
