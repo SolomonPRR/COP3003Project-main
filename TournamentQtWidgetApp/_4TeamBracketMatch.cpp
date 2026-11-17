@@ -98,7 +98,7 @@ void  _4TeamBracketMatch::on_calculate4MatchButton_clicked()
 		Team finalist1 = matches[0].getTeam(1);
 		Team finalist2 = matches[1].getTeam(1);
 
-		// Ask each Match which team won.
+		// Using Match to determine which team won
 		if (matches[0].getResult(1) == "LOSS") {
 			finalist1 = matches[0].getTeam(2);
 		}
@@ -144,14 +144,15 @@ void  _4TeamBracketMatch::on_calculate4MatchButton_clicked()
 	matches[2].addPoints(1, finalScore1);
 	matches[2].addPoints(2, finalScore2);
 
-	Team champion = matches[2].getTeam(1);
+	//determines who the winner is, most likely move to .h, for testing we implement here
+	Team winner = matches[2].getTeam(1);
 
 	if (matches[2].getResult(1) == "LOSS") {
-		champion = matches[2].getTeam(2);
+		winner = matches[2].getTeam(2);
 	}
 
 	ui.matchWinnerA->setText(
-		QString::fromStdString(champion.getName()));
+		QString::fromStdString(winner.getName()));
 
 	ui.match2Score1A->setEnabled(false);
 	ui.match2Score2A->setEnabled(false);
@@ -172,6 +173,8 @@ void  _4TeamBracketMatch::on_result4Button_clicked()
 	window->setWindowModality(Qt::ApplicationModal);
 	window->show();*/
 
+	//working progress, still determining what it will actually show
+
 	if (!tournamentFinished) {
 		QMessageBox::warning(
 			this, "Tournament Incomplete",
@@ -184,7 +187,7 @@ void  _4TeamBracketMatch::on_result4Button_clicked()
 				results += "FINAL\n";
 			}
 			else {
-				results += "SEMIFINAL "
+				results += "Team results "
 				 + QString::number(i + 1) + " \n";
 			}
 
@@ -200,13 +203,14 @@ void  _4TeamBracketMatch::on_result4Button_clicked()
 			results += " : "
 					+ QString::number(matches[i].getScore(2)) + "\n\n";
 		}
-	Team champion = matches[2].getTeam(1);
+	//ditto
+	Team winner = matches[2].getTeam(1);
 	if (matches[2].getResult(1) == "LOSS"){
-		champion = matches[2].getTeam(2);
+		winner = matches[2].getTeam(2);
 	}
 	
 	results += "Winner: "
-		 + QString::fromStdString(champion.getName());
+		 + QString::fromStdString(winner.getName());
 	
 	auto* window = new MatchStandings(this);
 	
