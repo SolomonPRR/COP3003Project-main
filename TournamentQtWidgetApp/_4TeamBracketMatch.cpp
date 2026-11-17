@@ -54,7 +54,7 @@ void _4TeamBracketMatch::setTeams(const std::vector<Team>& teamList)
 
 void  _4TeamBracketMatch::on_calculate4MatchButton_clicked()
 {
-	// Implement the logic for calculating the 4-team bracket match results here
+	// Implement the logic for calculating the 4-team bracket match results 
 
 	if (teams.size() != 4) {
 		QMessageBox::warning(
@@ -81,13 +81,13 @@ void  _4TeamBracketMatch::on_calculate4MatchButton_clicked()
 			return;
 		}
 
-		// Create matches using your existing Match class.
+		// Creates matches with current Macth class
 		matches.clear();
 
 		matches.push_back(Match(teams[0], teams[1]));
 		matches.push_back(Match(teams[2], teams[3]));
 
-		// Store scores using your existing addPoints().
+		// Store scores using addPoints().
 		matches[0].addPoints(1, score1);
 		matches[0].addPoints(2, score2);
 
@@ -107,7 +107,7 @@ void  _4TeamBracketMatch::on_calculate4MatchButton_clicked()
 			finalist2 = matches[1].getTeam(2);
 		}
 
-		// Create the final using the winning teams.
+		// Create the final using the Winning teams.
 		matches.push_back(Match(finalist1, finalist2));
 
 		ui.match2Team1A->setText(
