@@ -19,8 +19,7 @@ Build/Run steps:
     7. Taken to another window, Tournament Settings, add a number of 4 Teams names, make sure it's not the same name
     8. From there click match and you should be guided to another window, implement the points earned, 
          and click calculate match and it should forward the teams with highest points, and do it again for the next round
-    9. After the Winner has been decided, click results page and you should be guided into another window and it should follow the 
-         winner and semifinalist. 
+    9. After the Winner has been decided, click results page and you should be guided into another window and it should follow the winner and semifinalist. 
    10. For Now you have completed our program. 
 
 
