@@ -46,11 +46,8 @@ Linking 4 ui. Files to our main C++ code.
 
 The GUI provides the general flow of the program, allowing users to team names, input points, and calculate the standings for their tournament. 
 
-Adding Teams- 
 
-Entering Scores-
-
-Show Results- 
+Documentation of help includes external videos, Qt documentation and example uses of Qt with Ai help for learning processes only. 
 
 
 Still Needed : 
