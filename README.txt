@@ -48,8 +48,9 @@ The GUI provides the general flow of the program, allowing users to team names, 
 
 Adding Teams- 
 
+Entering Scores-
 
-
+Show Results- 
 
 
 Still Needed : 
