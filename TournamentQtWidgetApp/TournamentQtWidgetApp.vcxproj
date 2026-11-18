@@ -103,7 +103,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="MatchStandings.cpp" />
-    <ClCompile Include="_16TeamBracketMatch.cpp" />
     <ClCompile Include="_4TeamBracketMatch.cpp" />
     <ClCompile Include="_8TeamBracketMatch.cpp" />
     <QtRcc Include="TournamentQtWidgetApp.qrc" />
@@ -114,7 +113,6 @@
     <ClCompile Include="CreateTournamentWindow.cpp" />
     <ClCompile Include="TournamentQtWidgetApp.cpp" />
     <ClCompile Include="main.cpp" />
-    <QtUic Include="_16TeamBracketMatch.ui" />
     <QtUic Include="_4TeamBracketMatch.ui" />
     <QtUic Include="_8TeamBracketMatch.ui" />
   </ItemGroup>
@@ -126,9 +124,6 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="_8TeamBracketMatch.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <QtMoc Include="_16TeamBracketMatch.h" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="MatchStandings.h" />

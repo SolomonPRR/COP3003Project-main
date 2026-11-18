@@ -14,19 +14,6 @@
    <string>_8TeamBracketMatch</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QLineEdit" name="match1Team2B">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>100</y>
-      <width>113</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="readOnly">
-     <bool>true</bool>
-    </property>
-   </widget>
    <widget class="QFrame" name="frame_3">
     <property name="geometry">
      <rect>
@@ -121,7 +108,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Results Page</string>
+     <string>Results</string>
     </property>
    </widget>
    <widget class="QFrame" name="frame_7">
@@ -225,6 +212,7 @@
     <property name="font">
      <font>
       <pointsize>20</pointsize>
+      <bold>true</bold>
      </font>
     </property>
     <property name="text">
@@ -320,19 +308,6 @@
      <number>100</number>
     </property>
    </widget>
-   <widget class="QLineEdit" name="match1Team4B">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>260</y>
-      <width>113</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="readOnly">
-     <bool>true</bool>
-    </property>
-   </widget>
    <widget class="QSpinBox" name="spinBox_5">
     <property name="geometry">
      <rect>
@@ -380,19 +355,6 @@
      <enum>QFrame::Shadow::Raised</enum>
     </property>
    </widget>
-   <widget class="QLineEdit" name="match1Team3B">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>190</y>
-      <width>113</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="readOnly">
-     <bool>true</bool>
-    </property>
-   </widget>
    <widget class="QFrame" name="frame">
     <property name="geometry">
      <rect>
@@ -438,19 +400,6 @@
     </property>
     <property name="maximum">
      <number>100</number>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="match1Team1B">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>30</y>
-      <width>113</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="readOnly">
-     <bool>true</bool>
     </property>
    </widget>
    <widget class="QSpinBox" name="spinBox_3">
@@ -565,19 +514,6 @@
      <enum>QFrame::Shadow::Raised</enum>
     </property>
    </widget>
-   <widget class="QLineEdit" name="match1Team6B">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>410</y>
-      <width>113</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="readOnly">
-     <bool>true</bool>
-    </property>
-   </widget>
    <widget class="QFrame" name="frame_15">
     <property name="geometry">
      <rect>
@@ -597,19 +533,6 @@
     </property>
     <property name="frameShadow">
      <enum>QFrame::Shadow::Raised</enum>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="match1Team5B">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>340</y>
-      <width>113</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="readOnly">
-     <bool>true</bool>
     </property>
    </widget>
    <widget class="QFrame" name="frame_16">
@@ -769,19 +692,6 @@
      <enum>QFrame::Shadow::Raised</enum>
     </property>
    </widget>
-   <widget class="QLineEdit" name="match1Team8B">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>570</y>
-      <width>113</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="readOnly">
-     <bool>true</bool>
-    </property>
-   </widget>
    <widget class="QFrame" name="frame_21">
     <property name="geometry">
      <rect>
@@ -801,19 +711,6 @@
     </property>
     <property name="frameShadow">
      <enum>QFrame::Shadow::Raised</enum>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="match1Team7B">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>500</y>
-      <width>113</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="readOnly">
-     <bool>true</bool>
     </property>
    </widget>
    <widget class="QFrame" name="frame_22">
@@ -1060,6 +957,86 @@
     </property>
     <property name="maximum">
      <number>100</number>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="match1Team1B">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>30</y>
+      <width>111</width>
+      <height>24</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="match1Team2B">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>100</y>
+      <width>111</width>
+      <height>24</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="match1Team3B">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>190</y>
+      <width>111</width>
+      <height>24</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="match1Team4B">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>260</y>
+      <width>111</width>
+      <height>24</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="match1Team5B">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>340</y>
+      <width>111</width>
+      <height>24</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="match1Team6B">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>410</y>
+      <width>111</width>
+      <height>24</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="match1Team7B">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>500</y>
+      <width>111</width>
+      <height>24</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="match1Team8B">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>570</y>
+      <width>111</width>
+      <height>24</height>
+     </rect>
     </property>
    </widget>
   </widget>
