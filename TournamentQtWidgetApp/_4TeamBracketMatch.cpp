@@ -15,12 +15,6 @@ _4TeamBracketMatch::_4TeamBracketMatch(QWidget *parent)
 	ui.match2Team1A->setEnabled(false);
 	ui.match2Team2A->setEnabled(false);
 
-	// Users enter scores; the program supplies team names.
-	ui.match1Team1A->setReadOnly(true);
-	ui.match1Team2A->setReadOnly(true);
-	ui.match1Team3A->setReadOnly(true);
-	ui.match1Team4A->setReadOnly(true);
-
 	ui.match2Team1A->setReadOnly(true);
 	ui.match2Team2A->setReadOnly(true);
 	ui.matchWinnerA->setReadOnly(true);
@@ -33,21 +27,21 @@ void _4TeamBracketMatch::setTeams(const std::vector<Team>& teamList)
 {
 	teams = teamList;
 
-	if (teams.size() != 4) {
-		return;
+	QList<QComboBox*> boxes = {
+		ui.match1Team1A,
+		ui.match1Team2A,
+		ui.match1Team3A,
+		ui.match1Team4A
+	};
+
+	// Set each box to containt (select) as a default option then add the team names
+	for (QComboBox* box : boxes) {
+		box->clear();
+		box->addItem(QString::fromStdString("(Select)"));
+		for (Team team : teams) {
+			box->addItem(QString::fromStdString(team.getName()));
+		}
 	}
-
-	ui.match1Team1A->setText(
-		QString::fromStdString(teams[0].getName()));
-
-	ui.match1Team2A->setText(
-		QString::fromStdString(teams[1].getName()));
-
-	ui.match1Team3A->setText(
-		QString::fromStdString(teams[2].getName()));
-
-	ui.match1Team4A->setText(
-		QString::fromStdString(teams[3].getName()));
 
 }
 
@@ -55,13 +49,6 @@ void _4TeamBracketMatch::setTeams(const std::vector<Team>& teamList)
 void  _4TeamBracketMatch::on_calculate4MatchButton_clicked()
 {
 	// Implementaion logic used for  calculating the 4-team bracket match results 
-
-	if (teams.size() != 4) {
-		QMessageBox::warning(
-			this, "Missing Teams",
-			"You need exactly 4 teams.");
-		return;
-	}
 
 	if (tournamentFinished) {
 		return;
@@ -77,15 +64,59 @@ void  _4TeamBracketMatch::on_calculate4MatchButton_clicked()
 		if (score1 == score2 || score3 == score4) {
 			QMessageBox::warning(
 				this, "Tied Match",
-				"Resolve both semifinal ties first.");
+				"Resolve any ties before continuing.");
+			return;
+		}
+
+		if (ui.match1Team1A->currentIndex() == 0 ||
+			ui.match1Team2A->currentIndex() == 0 ||
+			ui.match1Team3A->currentIndex() == 0 ||
+			ui.match1Team4A->currentIndex() == 0) {
+			QMessageBox::warning(
+				this, "Incomplete Selection",
+				"Select a team for each match.");
+			return;
+		}
+		// Check that no two selections are the same team
+		else if (ui.match1Team1A->currentText() == ui.match1Team2A->currentText() ||
+			ui.match1Team1A->currentText() == ui.match1Team3A->currentText() ||
+			ui.match1Team1A->currentText() == ui.match1Team4A->currentText() ||
+			ui.match1Team2A->currentText() == ui.match1Team3A->currentText() ||
+			ui.match1Team2A->currentText() == ui.match1Team4A->currentText() ||
+			ui.match1Team3A->currentText() == ui.match1Team4A->currentText()) {
+			QMessageBox::warning(
+				this, "Duplicate Teams",
+				"You have two or more of the same Team.");
 			return;
 		}
 
 		// Creates matches with current Match class
-		matches.clear();
+		matches.clear();		
 
-		matches.push_back(Match(teams[0], teams[1]));
-		matches.push_back(Match(teams[2], teams[3]));
+
+		// Check which teams are in which dropdown and store them in the matches vector.
+		Team match1Team1("");
+		Team match1Team2("");
+		Team match2Team1("");
+		Team match2Team2("");
+			
+		for (const Team& team : teams) {
+			if (team.getName() == ui.match1Team1A->currentText().toStdString()) {
+				match1Team1 = team;
+			}
+			else if (team.getName() == ui.match1Team2A->currentText().toStdString()) {
+				match1Team2 = team;
+			}
+			else if (team.getName() == ui.match1Team3A->currentText().toStdString()) {
+				match2Team1 = team;
+			}
+			else if (team.getName() == ui.match1Team4A->currentText().toStdString()) {
+				match2Team2 = team;
+			}
+		}
+
+		matches.push_back(Match(match1Team1, match1Team2));
+		matches.push_back(Match(match2Team1, match2Team2));
 
 		// Store scores using addPoints().
 		matches[0].addPoints(1, score1);
@@ -136,8 +167,8 @@ void  _4TeamBracketMatch::on_calculate4MatchButton_clicked()
 
 	if (finalScore1 == finalScore2) {
 		QMessageBox::warning(
-			this, "Tied Final",
-			"Resolve the final's tie first.");
+			this, "Tied Match",
+			"Resolve the tie before continuing.");
 		return;
 	}
 
@@ -173,7 +204,7 @@ void  _4TeamBracketMatch::on_result4Button_clicked()
 	window->setWindowModality(Qt::ApplicationModal);
 	window->show();*/
 
-	//working progress, still determining what it will actually show
+	//work in progress, still determining what it will actually show
 
 	if (!tournamentFinished) {
 		QMessageBox::warning(

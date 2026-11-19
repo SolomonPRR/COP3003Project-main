@@ -2,7 +2,6 @@
 #include "TournamentBridge.h"
 #include "_4TeamBracketMatch.h"
 #include "_8TeamBracketMatch.h"
-#include "_16TeamBracketMatch.h"
 #include <QInputDialog>
 #include <QLineEdit>
 #include <QMessageBox>
@@ -37,16 +36,6 @@ void CreateTournamentWindow::on_size8TournamentButton_clicked()
 	// This is a bypass to the 8 team bracket match window. It will create a new instance of the window and show it.
 	// The intended function is to select the team size only, "Start Match" opens the bracket match window with the selected team size.
 	auto* window = new _8TeamBracketMatch(this);
-
-	window->setAttribute(Qt::WA_DeleteOnClose);
-	window->setWindowModality(Qt::ApplicationModal);
-	window->show();
-}
-
-void CreateTournamentWindow::on_size16TournamentButton_clicked()
-{
-	// Will be deleted, pay no attention, considering removing 16 team size.
-	auto* window = new _16TeamBracketMatch(this);
 
 	window->setAttribute(Qt::WA_DeleteOnClose);
 	window->setWindowModality(Qt::ApplicationModal);

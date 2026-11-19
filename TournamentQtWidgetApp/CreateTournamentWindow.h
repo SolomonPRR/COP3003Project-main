@@ -23,6 +23,5 @@ private slots:
 	void on_startMatchButton_clicked();
 	void on_size4TournamentButton_clicked();
 	void on_size8TournamentButton_clicked();
-	void on_size16TournamentButton_clicked();
 };
 
